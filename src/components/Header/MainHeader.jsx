@@ -1,6 +1,7 @@
 import { TbLogout } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { CONSTANTS } from "../../lib/constants";
 
 export const MainHeader = () => {
 	const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const MainHeader = () => {
 					text: "Your Account has been deleted.",
 					icon: "success",
 				});
-				localStorage.removeItem("authToken"); // Clear token
+				localStorage.removeItem(CONSTANTS.IS_LOGGED_IN); // Clear token
 				navigate("/login"); // Redirect to login page
 			}
 		});

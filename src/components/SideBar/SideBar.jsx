@@ -2,9 +2,9 @@ import { FiMenu } from "react-icons/fi";
 
 import { NavLink } from "react-router-dom";
 
-import { CONSTANTS } from "../../Constants/Constants.JSX";
 import { Link } from "react-router-dom";
 import { SIDEBAR_TOP_TABS } from "../../Helper/tabs";
+import { CONSTANTS } from "../../lib/constants";
 
 export const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 	return (

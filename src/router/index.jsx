@@ -3,16 +3,16 @@ import { HrDashboard } from "../Pages/hr/hrDashboard";
 import { UserDashboard } from "../Pages/user/userDashboard";
 
 export const AdminRoutes = [
-  { path: "/admin/dashboard", component: <AdminDashboard /> },
+  { path: "/admin", component: <AdminDashboard /> },
   // Add other admin routes here
 ];
 
 export const HrRoutes = [
-  { path: "/hr/dashboard", component: <HrDashboard /> },
+  { path: "/hr", component: <HrDashboard /> },
   // Add other HR routes here
 ];
 
 export const UserRoutes = [
-  { path: "/user/dashboard", component: <UserDashboard /> },
+  { path: "/user", component: <UserDashboard /> },
   // Add other user routes here
 ];
