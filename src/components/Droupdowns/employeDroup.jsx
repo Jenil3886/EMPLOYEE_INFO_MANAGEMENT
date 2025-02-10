@@ -56,26 +56,25 @@ export const EmployeDroup = (props) => {
 			</button>
 
 			{isOpen && (
-				<ul className="absolute mt-2 w-32 bg-gray-700 rounded-md shadow-lg z-10">
+				<div className="absolute mt-2 w-32 bg-gray-700 rounded-md shadow-lg z-10">
 					{/* Static Dropdown Options */}
-					<li
+					<Link
 						className="p-2 hover:bg-gray-500 rounded-md hover:text-gray-300 cursor-pointer flex items-center gap-2"
-						onClick={() => navigate(`/profile/${props.data.id}`)}
+						// onClick={() => navigate(`/profile/${props.data.id}`)}3
+						to={`/profile/${props.data.id}`}
 					>
-						{/* <Link rel="stylesheet" to={`/User/${props.data.id}`} href=""> */}
 						<FaEye className="text-lg" />
 						<div className="">View</div>
-						{/* </Link> */}
-					</li>
-					<li className="p-2 hover:bg-gray-500 rounded-md hover:text-gray-300 cursor-pointer flex items-center gap-2" onClick={handleEdit}>
+					</Link>
+					<div className="p-2 hover:bg-gray-500 rounded-md hover:text-gray-300 cursor-pointer flex items-center gap-2" onClick={handleEdit}>
 						<MdEdit className="text-lg" />
 						<div className="">Edit</div>
-					</li>
-					<li className="p-2 hover:bg-gray-500 rounded-md hover:text-gray-300 cursor-pointer flex items-center gap-2" onClick={handleDelete}>
+					</div>
+					<div className="p-2 hover:bg-gray-500 rounded-md hover:text-gray-300 cursor-pointer flex items-center gap-2" onClick={handleDelete}>
 						<MdDelete className="text-lg" />
 						<div className="">Delete</div>
-					</li>
-					<li
+					</div>
+					<div
 						className="p-2 hover:bg-gray-500 rounded-md hover:text-gray-300 cursor-pointer flex items-center gap-2"
 						onClick={() => {
 							setIsOpen(false);
@@ -84,8 +83,8 @@ export const EmployeDroup = (props) => {
 					>
 						<MdOutlineLockReset className="text-2xl" />
 						<div className="">Change Password</div>
-					</li>
-				</ul>
+					</div>
+				</div>
 			)}
 
 			<AddEmploioModal data={props.data} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

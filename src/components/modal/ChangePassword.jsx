@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export const ChangePassword = ({ isOpenChangePass, onCloseChangePass }) => {
 	if (!isOpenChangePass) return null;
 

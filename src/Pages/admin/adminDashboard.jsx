@@ -1,3 +1,9 @@
+import { EmployeData } from "../../components/EmployeData";
+
 export const AdminDashboard = () => {
-	return <div className="text-2xl font-bold text-white">Admin Dashbord</div>;
+	return (
+		<>
+			<EmployeData />
+		</>
+	);
 };

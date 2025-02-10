@@ -75,5 +75,4 @@ export const IncrementSalaryModal = ({ isOpenSalary, onCloseSalary }) => {
 			</div>
 		</div>
 	);
-	s;
 };

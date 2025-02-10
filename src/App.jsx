@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import { LoginPage } from "./Pages/Auth/LogInPage";
 import { SigninPage } from "./Pages/Auth/SignInPage";
@@ -9,8 +9,13 @@ import { MainHeader } from "./components/Header/MainHeader";
 import { useState } from "react";
 import { useMemo } from "react";
 import { AuthMiddleware, HomeMiddleware } from "./router/middleware";
+import { CONSTANTS } from "./lib/constants";
+import { useEffect } from "react";
+import { setUser } from "./Features/AuthSlice";
+import { dispatchEvent } from "./app/Store";
 
 function App() {
+  const user = JSON.parse(localStorage.getItem(CONSTANTS.IS_LOGGED_IN)); // Store session data
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const location = useLocation();
@@ -19,6 +24,10 @@ function App() {
     () => !new RegExp(/^\/items\/[a-zA-Z0-9_-]+$/).test(location.pathname),
     [location.pathname]
   );
+
+  useEffect(() => {
+    dispatchEvent(setUser(user));
+  }, [user]);
 
   return (
     <>
@@ -35,13 +44,16 @@ function App() {
         <div style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
           {showHeader && <MainHeader />}
 
-          <main
-            style={{
-              flexGrow: 1,
-              overflow: "auto",
-            }}
-          >
+          <main className="flex-grow overflow-y-auto [&::-webkit-scrollbar]:w-0.5">
             <Routes>
+              <Route
+                path="*"
+                element={
+                  <div className="text-gray-400 font-bold text-7xl w-full text-center mt-44 ">
+                    The page you’re looking <br /> for can’t be found.
+                  </div>
+                }
+              />
               <Route path="/" element={<HomeMiddleware />} />
               <Route path="/signin" element={<SigninPage />} />
               <Route path="/login" element={<LoginPage />} />

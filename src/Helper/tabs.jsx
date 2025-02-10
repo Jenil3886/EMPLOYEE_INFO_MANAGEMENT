@@ -1,8 +1,12 @@
-import { FiHome } from "react-icons/fi";
 import { TbSettings } from "react-icons/tb";
 import { CONSTANTS } from "../lib/constants";
+import { FcLeave } from "react-icons/fc";
 
-export const SIDEBAR_TOP_TABS = [{ path: "/", label: "Home", icon: <FiHome /> }];
+export const ADMIN_SIDEBAR_TOP_TABS = [
+  { path: "/admin/addleave ", label: "Add Leave", icon: <FcLeave /> },
+];
+
+export const USER_SIDEBAR_TOP_TABS = [{ path: "/user/leave ", label: "User Leave", icon: <FcLeave /> }];
 
 export const SIDEBAR_BOTTOM_TABS = [{ path: "/settings", label: "Settings", icon: <TbSettings /> }];
 

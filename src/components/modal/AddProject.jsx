@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaPencilAlt } from "react-icons/fa";
 import { FaCircleCheck } from "react-icons/fa6";
 import { MdDeleteForever } from "react-icons/md";
@@ -15,10 +14,13 @@ export const AddProjectModal = ({ isOpenProject, onCloseProject }) => {
 		setProjectName(e.target.value); // directly set the value
 	};
 
+	// ** Old handleSubmit ** //
+
 	const handleSubmit = (e) => {
 		e.preventDefault(); // Prevent default form submission
 		console.log("projectName is submit");
 
+        
 		if (isEditing !== null) {
 			const updatedData = [...tableData];
 			updatedData[isEditing] = projectName;
@@ -66,20 +68,20 @@ export const AddProjectModal = ({ isOpenProject, onCloseProject }) => {
 				<div className="flex mt-3 items-center">
 					<div className="flex flex-col pt-2 px-3 w-96 gap-3">
 						<label htmlFor="">project Name</label>
-						<form onSubmit={handleSubmit} className="flex w-full items-center justify-between gap-2">
+						<form onSubmit={handleSubmit} className="flex w-full my-2 items-center justify-between gap-2">
 							<input
 								type="text"
 								placeholder="Enter Designaition"
 								className="rounded-md  bg-slate-200 w-full p-2 "
 								value={projectName}
-								onChange={handleInputChange}
+								onChange={(e) => setProjectName(e.target.value)}
 							/>
 							<button className="bg-slate-200 p-2 rounded-md text-[23px]">
 								<FaCircleCheck />
 							</button>
 						</form>
 						{tableData.length > 0 && (
-							<div className="relative overflow-x-auto shadow-sm shadow-gray-700 sm:rounded-lg my-5 w-[360px]">
+							<div className="relative overflow-x-auto shadow-sm shadow-gray-700 sm:rounded-lg mb-5 w-[360px]">
 								<table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 									<thead className="text-xs  text-gray-400 uppercase p bg-gray-700 ">
 										<tr>
